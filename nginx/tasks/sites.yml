@@ -1,0 +1,12 @@
+-
+  name: Creation repertoire
+  file: path=/home/{{ user }}/{{ item }} state=directory
+-
+  name: Creation Link
+  file: src=/home/{{ user }}/{{ item }} dest=/var/www/html/{{ item }} state=link
+-
+   name: utilisation file_template
+   template: src=nginx.j2 dest=/etc/nginx/sites-available force=yes
+-
+  name: Creation Link1
+  file: src=/etc/nginx/sites-available/nginx.j2 dest=/etc/nginx/sites-enabled/nginx.j2  state=link

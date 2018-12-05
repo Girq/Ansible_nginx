@@ -1,0 +1,20 @@
+
+    # - name: update
+    #   apt: update_cache=yes
+
+    - name: install nginx
+      apt: name=nginx state=present
+    # -
+    #   name: supression default
+    #   file: path=/etc/nginx/sites-available/default state=absent
+
+    # - name: cofig des sites
+    #   include_tasks: sites.yml
+    #   with_items:
+    #       - '{{ domains }}'
+
+    - name: installation php
+      include: php.yml
+
+    - name: php restart
+      service: name=php7.0-fpm state=restarted
